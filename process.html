@@ -1,0 +1,152 @@
+<html>
+<head>
+    <title>Future Museums</title>
+    
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato|Lobster');
+        /*Room for Page Specific Styles*/
+
+
+
+        #audiencePhoto{
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            background-size:cover; 
+            background-image: url('assets/Photos/0.jpg')
+        }
+
+
+    </style>
+
+
+</head>
+
+<body style="background-color:#f0f0f0">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+
+    <div id="container"> 
+     <div id="stickyHeader">
+        <div class="row">
+            <div class="col two"><img style="width:100%;height: 80%" src="assets/Future-Museum-Branding.svg" /></div>
+            <div class="col four"></div>
+            <div class="col two navLink"><a href="index.html">Design Proposal</a></div><div class="col two navLink"><a href="process.html">Design Process</a></div><div class="col two navLink"><a href="storyboard.html">Storyboard</a></div>
+        </div>
+    </div> 
+
+
+
+
+    <div class="row" style="height: 90%;">
+
+        <div class="col one"></div>
+
+        <div class="col three" style="margin-top: 15%;"> 
+
+         <p class="mus-subtitle"> 
+            Audience Needs
+        </p>
+        <p class="statement" style="margin-top: 50px">
+            What do people actually want to do when they are in an art museum? 
+        </p>
+
+        <p class="mus-words" id="audienceText">
+           Museum is a big part of urban tourism because an art museum is always a landmark of a city. People go to art museums for leisure. They usually don't have much knowledge of arts and go there just for fun.
+       </p>
+   </div>
+
+   <div class="col one"></div>
+
+   <div class="col seven" id="audiencePhoto"> 
+
+      <div class="button left"> < </div>
+      <div class="button right"> > </div>
+  </div>
+
+</div>
+
+<div class="row" style="height: 100%">
+
+ <div class="col one">
+
+ </div>
+ <div class="col six" style="margin-top: 10%" >
+    <img style="width:100%" src="assets/process/terrains.svg"/>
+</div>
+<div class="col one">
+
+</div>
+
+<div class="col three" style="margin-top: 20%">
+
+   <p class="mus-subtitle"> 
+    Audience Needs
+</p>
+<p class="statement" style="margin-top: 20px">
+    What do people actually want to do when they are in an art museum? 
+</p>
+</div>
+
+<div class="col one"></div>
+</div>
+</div>
+
+<script>
+
+    var counter = 0;
+
+    var textArray = ["<p>Museum is a big part of urban tourism because an art museum is always a landmark of a city. People go to art museums for leisure. They usually don't have much knowledge of arts and go there just for fun.</p>", "Parents like to take their kids to museums for educating. Schools organize field trips to art museums to teach kids about arts.", "Art students and scholars are the professionals. They would love to go to art museums because they love arts. And seeing art works in person means a lot to professional art studies.", "Museum staff and preservers restore and preserve arts in art museums."];
+
+    $(".right").click(function(){
+        counter++;
+
+        if(counter > 3){
+            counter = 0;
+        }
+
+
+        var photoLink = String(counter) + ".jpg"
+
+        $("#audiencePhoto").animate({"opacity":0}, 500, 
+            function(){  
+                $("#audiencePhoto").css("background-image","url('assets/Photos/" + photoLink + "')");           
+            });
+
+        $("#audiencePhoto").animate({"opacity":1}, 1000);
+
+        $("#audienceText").html(textArray[counter]);
+
+    });
+
+    $(".left").click(function(){
+        counter--;
+
+        if(counter < 0){
+            counter = 3;
+        }
+
+
+        var photoLink = String(counter) + ".jpg"
+
+        $("#audiencePhoto").animate({"opacity":0}, 500, 
+            function(){  
+                $("#audiencePhoto").css("background-image","url('assets/Photos/" + photoLink + "')");           
+            });
+
+        $("#audiencePhoto").animate({"opacity":1}, 1000);
+
+        $("#audienceText").html(textArray[counter]);
+
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+scp -i ~/.ssh/andi.pem ~/Desktop/structure.zip ubuntu@44.44.44.44:/var/www/html/
+
+ssh -i ~/.ssh/andi.pem 
+cd /var/www/html/
+unzip structure.zip
